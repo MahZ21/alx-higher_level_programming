@@ -1,0 +1,25 @@
+The ``3-say_my_name`` module
+============================
+Using ``say_my_name``
+----------------------------
+This is the test file for printing a name. First import
+``say_my_name`` from ``3-say_my_name``
+	>>> say_my_name =  __import__('3-say_my_name').say_my_name
+
+	>>> say_my_name("Abebe") # doctest: +NORMALIZE_WHITESPACE
+	My name is Abebe
+
+	>>> say_my_name("","Abebe") # doctest: +NORMALIZE_WHITESPACE
+        My name is Abebe
+
+	>>> say_my_name("Abebe", "Kebede")
+	My name is Abebe Kebede
+
+	>>> say_my_name(1)
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Abebe", 2)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+    
