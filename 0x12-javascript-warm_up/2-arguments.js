@@ -8,3 +8,4 @@ if (l === 2) {
 } else {
   console.log('Arguments found');
 }
+
