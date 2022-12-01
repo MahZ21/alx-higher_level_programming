@@ -1,10 +1,8 @@
 #!/usr/bin/node
-if (process.argv.length <= 3) {
-  console.log(0);
+const num = parseInt(process.argv[2], 10);
+if (!num) {
+  console.log('Not a number');
 } else {
-  const args = process.argv.map(Number)
-    .slice(2, process.argv.length)
-    .sort((a, b) => a - b);
-  console.log(args[args.length - 2]);
+  console.log('My number: ' + Number(process.argv[2]));
 }
   
