@@ -1,3 +1,8 @@
 #!/usr/bin/node
-'use strict';
-console.log(process.argv[2] + ' is ' + process.argv[3]);
+if (process.argv[2] === null) {
+  console.log('undefined' + ' is undefined');
+} else if (process.argv[3] != null) {
+  console.log(process.argv[2] + ' is ' + process.argv[3]);
+} else {
+  console.log(process.argv[2] + ' is undefined');
+}
