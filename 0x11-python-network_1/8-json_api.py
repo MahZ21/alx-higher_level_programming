@@ -1,19 +1,23 @@
 #!/usr/bin/python3
-# Task 8. Search API
-if __name__ == "__main__":
-    import sys
+"""
+takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user
+with the letter as a parameter
+"""
+if __name__ == '__main__':
     import requests
-    the_url = "http://0.0.0.0:5000/search_user"
-    if len(sys.argv) > 1:
-        the_letter = {"q": sys.argv[1]}
+    from sys import argv
+    if len(argv) == 2:
+        q = argv[1]
     else:
-        the_letter = {'q': ""}
-    my_req = requests.post(the_url, the_letter)
+        q = ""
+    r = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
     try:
-        the_resp = my_req.json()
-        if not the_resp:
+        r_dict = r.json()
+        id = r_dict.get('id')
+        name = r_dict.get('name')
+        if len(r_dict) == 0 or not id or not name:
             print("No result")
         else:
-            print("[{}] {}".format(the_resp.get('id'), the_resp.get('name')))
+            print("[{}] {}".format(r_dict.get('id'), r_dict.get('name')))
     except:
         print("Not a valid JSON")
