@@ -1,14 +1,8 @@
 #!/usr/bin/python3
-"""Fetches header"""
+# Task 1. Response header value #0
+from sys import argv
 import urllib.request
-import sys
-
-
-def fetcher():
-    """fetcher"""
-    with urllib.request.urlopen(sys.argv[1]) as response:
-        header = response.info()
-        print(header["X-Request-Id"])
-
 if __name__ == "__main__":
-    fetcher()
+    with urllib.request.urlopen(argv[1]) as response:
+        html = response.info()
+        print('{}'.format(html.get('X-Request-Id')))
