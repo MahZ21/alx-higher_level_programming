@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-# Task 1. Response header value #0
-from sys import argv
-import urllib.request
+"""
+takes in a URL, sends a request to the URL and displays the value of the
+X-Request-Id variable found in the header of the response
+"""
 if __name__ == "__main__":
-    with urllib.request.urlopen(argv[1]) as response:
-        html = response.info()
-        print('{}'.format(html.get('X-Request-Id')))
+    import urllib.request as request
+    from sys import argv
+    req = request.Request(argv[1])
+    with request.urlopen(req) as r:
+        print(r.headers.get('X-Request-Id'))
